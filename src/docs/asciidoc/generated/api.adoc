@@ -1,0 +1,244 @@
+= API 文档
+
+
+[[_overview]]
+== Overview
+API 文档
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:4001
+__BasePath__ : /
+
+
+=== Tags
+
+* 文章管理接口 : Article Controller
+* 用户信息接口 : User Controller
+
+
+
+
+[[_paths]]
+== Paths
+
+[[_queryarticleusingpost]]
+=== 获取文章
+....
+POST /getArticle
+....
+
+
+==== Description
+根据文章ID获取指定文章
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**request** +
+__required__|文章查询通用实体|ref
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_b66e515183ae2084c4576e3479805a8d,响应实体>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 文章管理接口
+
+
+[[_getnameusingget]]
+=== 获取用户姓名
+....
+GET /getName
+....
+
+
+==== Description
+根据用户ID获取用户姓名
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**id** +
+__required__|用户ID|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 用户信息接口
+
+
+[[_indexusingget]]
+=== 首页
+....
+GET /index
+....
+
+
+==== Description
+首页
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 文章管理接口
+
+
+[[_susingpost]]
+=== 更新用户详细信息
+....
+POST /s
+....
+
+
+==== Description
+根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**FormData**|**a** +
+__required__|文章ID|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* 文章管理接口
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_b66e515183ae2084c4576e3479805a8d]]
+=== 响应实体
+http请求的通用返回实体
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**code** +
+__optional__|返回编码|integer (int32)
+|**item** +
+__optional__|数据实体|object
+|**message** +
+__optional__|附加信息|string
+|===
+
+
+[[_53d514bf069dd17173a3420ac8e529ce]]
+=== 文章请求实体
+文章查询请求实体
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**articleId** +
+__optional__|文章id|string
+|**releaseTime** +
+__optional__|发布时间|string
+|===
+
+
+
+
+
